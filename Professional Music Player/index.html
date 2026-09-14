@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Music Player</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="music-app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <span>NOOR</span>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <p class="menu-title">MENU</p>
+                <button class="nav-item active" id="homeBtn">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </button>
+                <button class="nav-item" id="browseBtn">
+                    <i class="fa-solid fa-compass"></i>
+                    <span>Browse</span>
+                </button>
+                <button class="nav-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Favorites</span>
+                </button>
+            </nav>
+
+            <!-- Categories -->
+            <div class="categories">
+                <p class="menu-title">CATEGORIES</p>
+                <button class="category-btn active" data-category="All">
+                    <i class="fa-solid fa-layer-group"></i>
+                    All Music
+                </button>
+                <button class="category-btn" data-category="Pop">
+                    <i class="fa-solid fa-star"></i>
+                    Pop
+                </button>
+                <button class="category-btn" data-category="Chill">
+                    <i class="fa-solid fa-cloud"></i>
+                    Chill
+                </button>
+                <button class="category-btn" data-category="Rock">
+                    <i class="fa-solid fa-guitar"></i>
+                    Rock
+                </button>
+                <button class="category-btn" data-category="Classical">
+                    <i class="fa-solid fa-music"></i>
+                    Classical
+                </button>
+            </div>
+
+            <!-- Sidebar Bottom -->
+            <div class="sidebar-bottom">
+                <div class="mini-note">
+                    <i class="fa-solid fa-headphones"></i>
+                </div>
+                <p>Enjoy your music</p>
+                <small>Listen. Relax. Repeat.</small>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="top-header">
+                <div>
+                    <p class="welcome">WELCOME BACK</p>
+                    <h1>Discover your <span>sound.</span></h1>
+                </div>
+
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="Search music..." autocomplete="off">
+                </div>
+            </header>
+
+            <!-- NOW PLAYING -->
+            <section class="now-playing">
+                <div class="album-art">
+                    <div class="vinyl">
+                        <div class="vinyl-center">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="song-information">
+                    <p class="now-label">NOW PLAYING</p>
+                    <h2 id="currentTitle">Dreaming Again</h2>
+                    <p id="currentArtist">Noor Music</p>
+
+                    <!-- Progress -->
+                    <div class="progress-area">
+                        <span id="currentTime">0:00</span>
+                        <input type="range" id="progressBar" min="0" max="100" value="0">
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <!-- Controls -->
+                    <div class="player-controls">
+                        <button id="shuffleBtn" class="control-btn small" title="Shuffle">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </button>
+                        <button id="previousBtn" class="control-btn" title="Previous">
+                            <i class="fa-solid fa-backward-step"></i>
+                        </button>
+                        <button id="playBtn" class="play-btn" title="Play">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <button id="nextBtn" class="control-btn" title="Next">
+                            <i class="fa-solid fa-forward-step"></i>
+                        </button>
+                        <button id="favoriteBtn" class="control-btn small" title="Favorite">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                    </div>
+
+                    <!-- Volume -->
+                    <div class="volume-area">
+                        <i class="fa-solid fa-volume-low"></i>
+                        <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.8">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLAYLIST -->
+            <section class="playlist-section">
+                <div class="playlist-header">
+                    <div>
+                        <p class="section-label">YOUR MUSIC</p>
+                        <h2>Playlist</h2>
+                    </div>
+                    <span id="songCount">6 songs</span>
+                </div>
+
+                <!-- Playlist -->
+                <div id="playlist" class="playlist"></div>
+
+                <!-- Empty Search -->
+                <div id="noResults" class="no-results">
+                    <i class="fa-solid fa-music"></i>
+                    <h3>No music found</h3>
+                    <p>Try another song or category.</p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <span>Task 3 • Web Music Player</span>
+                <span>Built with HTML, CSS & JavaScript</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio id="audioPlayer"></audio>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
